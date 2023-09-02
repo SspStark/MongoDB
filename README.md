@@ -5,8 +5,8 @@
 #### NoSQL --> Not only Structured Query Language
 - It stores data in the form of documents, data in each document stored as key-value pairs similar to JSON data but here it is called BSON(Binary JavaSript Object Notation), the advantage is data which is frequently accessed together is stored together rather than in seperate tables like in SQL because some times SQL Joins would feel like little bit confuse to work with.
 
-SQL --> Database -> Tables -> Records
-MongoDB --> Database -> Collections -> Documents
+Database -> Tables -> Records\
+Database -> Collections -> Documents
 
 {shows dbs} shows the available databases
 
