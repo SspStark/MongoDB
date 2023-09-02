@@ -8,6 +8,7 @@
 Database -> Tables -> Records\
 Database -> Collections -> Documents
 
+### creating databases & collections
 {show dbs} shows the available databases.
 
 {use <database_name>} switches to the database <database_name> if it already exists or creates it if it doesn't exit.
@@ -23,26 +24,34 @@ By default mongoDB creates an index on the _ id field in a collection.
 
 {db.collection_name.drop()} to drop the collection.
 
+### insert method
 {db.collection_name.insertOne({key value pairs here})} inserts a document into the collection named 'collection_name'
 
 {db.collection_name.insertMany([{key value pairs here}, {key value pairs here}, {key value pairs here}])} inserts many documents into the collection named 'collection_name'
+- we can insert various datatypes like string, integer, doubles(decimal numbers), boolean(true or false), date object (using new Date()), null(we can give null as value to a key), arrays(my-array: []), objects(my_object: {}).
 
-{db.collection_name.find()} lists all the documents of the collection named 'collection_name'
+### find method
+{db.collection_name.find()} show or lists all the documents of the collection named 'collection_name'
 
 {db.collection_name.find().sort({key value pairs})} to sort all the listed documents wrt to key value pairs provided.
-Ex - 
+Eg - 
 db.students.find().sort({name : 1}) sorts the documents in alphb. order
 db.students.find().sort({name : -1}) sorts the documents in reverse alphb. order
 
-{db.collection_name.find().limit(x)} limits the documents listed to a number x, i.e., total documents lisited will be x
+{db.collection_name.find().limit(x)} limits the documents listed to a number x, i.e., total documents lisited will be x.
+we can also use multiple methods like
+- {db.collection_name.find().sort({}).limit(x)}
 
 {db.collection_name.find({query}, {projection})} 
 - {query} -> filters the documents wrt the query provided, query is just a document or a collection of key value pairs
 - {projection} -> is used to show only some specific fields of all the documents after filtering, projection is just a document or a collection of key value pairs
 Ex -
+db.students.find({id:1})
+db.students.find({grade:4.0, age:16})
 db.students.find({}, {id:false,name:true, gpa:true})
 No filters given, but attributes to be listed are given
 
+### update method
 {db.collection_name.updateOne({filter}, {update})}
 - {query} -> filters the documents to select the document whose data to update
 - {update} -> actually updates the document 
