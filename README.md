@@ -19,7 +19,7 @@ Database -> Collections -> Documents
 
 {show collections} to show all the collections in the current db
 
-{db.createCollection('collection_name', {capped : true, size : 10000, max: 100}, {autoIndexID : false})} will create a collection with some upper limit of size and number of documents in the collection, autoIndexID to false will tell mongoDB to not create the default index on the _ id field in this collection.
+{db.createCollection('collection_name', {capped : true, size : 10000, max: 100}, {autoIndexID : false})}\ will create a collection with some upper limit of size and number of documents in the collection, autoIndexID to false will tell mongoDB to not create the default index on the _ id field in this collection.
 By default mongoDB creates an index on the _ id field in a collection.
 
 {db.collection_name.drop()} to drop the collection.
@@ -34,9 +34,10 @@ By default mongoDB creates an index on the _ id field in a collection.
 {db.collection_name.find()} show or lists all the documents of the collection named 'collection_name'
 
 {db.collection_name.find().sort({key value pairs})} to sort all the listed documents wrt to key value pairs provided.
+
 Eg - 
-db.students.find().sort({name : 1}) sorts the documents in alphb. order
-db.students.find().sort({name : -1}) sorts the documents in reverse alphb. order
+- db.students.find().sort({name : 1}) sorts the documents in alphb. order
+- db.students.find().sort({name : -1}) sorts the documents in reverse alphb. order
 
 {db.collection_name.find().limit(x)} limits the documents listed to a number x, i.e., total documents lisited will be x.
 we can also use multiple methods like
@@ -44,11 +45,12 @@ we can also use multiple methods like
 
 {db.collection_name.find({query}, {projection})} 
 - {query} -> filters the documents wrt the query provided, query is just a document or a collection of key value pairs
-- {projection} -> is used to show only some specific fields of all the documents after filtering, projection is just a document or a collection of key value pairs
+- {projection} -> is used to show only some specific fields of all the documents after filtering, projection is just a document or a collection of key value pairs.\
 Ex -
-db.students.find({id:1})
-db.students.find({grade:4.0, age:16})
-db.students.find({}, {id:false,name:true, gpa:true})
+- db.students.find({id:1})
+- db.students.find({grade:4.0, age:16})
+- db.students.find({}, {id:false,name:true, gpa:true})\
+MongoDB will give you _id automatically so we are 
 No filters given, but attributes to be listed are given
 
 ### update method
