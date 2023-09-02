@@ -8,11 +8,11 @@
 Database -> Tables -> Records\
 Database -> Collections -> Documents
 
-{shows dbs} shows the available databases
+{show dbs} shows the available databases.
 
-{use 'db_name'} switches to the database 'db_name' if it already exists or creates it if it doesn't
+{use <database_name>} switches to the database <database_name> if it already exists or creates it if it doesn't exit.
 
-{db.dropDatabase()} drops the current database
+{db.dropDatabase()} drops the current database.
 
 {db.createCollection('collection_name')} creates a new collection named 'collection_name'
 
@@ -21,7 +21,7 @@ Database -> Collections -> Documents
 {db.createCollection('collection_name', {capped : true, size : 10000, max: 100}, {autoIndexID : false})} will create a collection with some upper limit of size and number of documents in the collection, autoIndexID to false will tell mongoDB to not create the default index on the _ id field in this collection.
 By default mongoDB creates an index on the _ id field in a collection.
 
-{db.collection_name.drop()} to drop the collection
+{db.collection_name.drop()} to drop the collection.
 
 {db.collection_name.insertOne({key value pairs here})} inserts a document into the collection named 'collection_name'
 
