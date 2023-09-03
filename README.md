@@ -28,7 +28,7 @@ By default mongoDB creates an index on the _ id field in a collection.
 {db.collection_name.insertOne({key value pairs here})} inserts a document into the collection named 'collection_name'
 
 {db.collection_name.insertMany([{key value pairs here}, {key value pairs here}, {key value pairs here}])} inserts many documents into the collection named 'collection_name'
-- we can insert various datatypes like string, integer, doubles(decimal numbers), boolean(true or false), date object (using new Date()), null(we can give null as value to a key), arrays(my-array: []), objects(my_object: {}).
+- we can insert various datatypes like string, integer, doubles(decimal numbers), boolean(true or false), date object (using new Date()), null(we can give null as value to a key), arrays(my-array: [ ]), objects(my_object: { }).
 
 ### find method
 {db.collection_name.find()} show or lists all the documents of the collection named 'collection_name'
