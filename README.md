@@ -8,7 +8,7 @@
 Database -> Tables -> Records\
 Database -> Collections -> Documents
 
-### creating databases & collections
+## creating databases & collections
 {show dbs} shows the available databases.
 
 {use <database_name>} switches to the database <database_name> if it already exists or creates it if it doesn't exit.
@@ -24,13 +24,13 @@ By default mongoDB creates an index on the _ id field in a collection.
 
 {db.collection_name.drop()} to drop the collection.
 
-### insert method
+## insert method
 {db.collection_name.insertOne({key value pairs here})} inserts a document into the collection named 'collection_name'
 
 {db.collection_name.insertMany([{key value pairs here}, {key value pairs here}, {key value pairs here}])} inserts many documents into the collection named 'collection_name'
 - we can insert various datatypes like string, integer, doubles(decimal numbers), boolean(true or false), date object (using new Date()), null(we can give null as value to a key), arrays(my-array: [ ]), objects(my_object: { }).
 
-### find method
+## find method
 {db.collection_name.find()} show or lists all the documents of the collection named 'collection_name'
 
 {db.collection_name.find().sort({key value pairs})} to sort all the listed documents wrt to key value pairs provided.
@@ -53,7 +53,7 @@ Ex -
 MongoDB will give you _id automatically so we are giving false to it.\
 No filters given, but attributes to be listed are given
 
-### update method
+## update method
 {db.collection_name.updateOne({filter}, {update})}
 - {query} -> filters the documents to select the document whose data to update
 - {update} -> actually updates the document 
@@ -83,7 +83,7 @@ db.students.updateMany({fulltime : {$ exists:false}}, {$ set : {fulltime: true}}
 {db.collection_name.deleteMany({registerDate:{$exists:false}})}
 - we are deleting the documents where registerDate doesn't exist. 
 
-### comparison operators
+## comparison operators
 Comparision Operators -
 ne -> not equal
 lt -> less than
@@ -108,7 +108,7 @@ $ nin -> not in
 db.students.find({ $ and : [{fullTime:true}, {age : {$ gte : 18}  }]  }, {_ id:false, name:true, age:true})
 to find all the documents where the value of fullTime attribute is true and age is less than or equal to 'value'
 
-### Logical operators
+## Logical operators
 Logical Operators - 
 $ and
 $ or
@@ -120,7 +120,7 @@ db.collection_name.find({$ and: [{fulltime:true},{age:{$ gte : value}}]})
 db.collection_name.find({age : {$ not: {$ gte : value}}})
 to find all the documents where the value of the age attribute is not greater than or equal to 'value', i.e., is less than 'value'
 
-### Indexes
+## Indexes
 {db.collection_name.find({name:'value'}).explain('executionStats')}
 to get info about the execution of the query
 
