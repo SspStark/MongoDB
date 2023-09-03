@@ -19,7 +19,7 @@ Database -> Collections -> Documents
 
 {show collections} to show all the collections in the current db
 
-{db.createCollection('collection_name', {capped : true, size : 10000, max: 100}, {autoIndexID : false})}\will create a collection with some upper limit of size and number of documents in the collection, autoIndexID to false will tell mongoDB to not create the default index on the _ id field in this collection.
+{db.createCollection('collection_name', {capped : true, size : 10000, max: 100}, {autoIndexID : false})}\ will create a collection with some upper limit of size and number of documents in the collection, autoIndexID to false will tell mongoDB to not create the default index on the _ id field in this collection.
 By default mongoDB creates an index on the _ id field in a collection.
 
 {db.collection_name.drop()} to drop the collection.
