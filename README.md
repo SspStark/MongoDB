@@ -50,7 +50,7 @@ Ex -
 - db.students.find({id:1})
 - db.students.find({grade:4.0, age:16})
 - db.students.find({}, {id:false,name:true, gpa:true})\
-MongoDB will give you _id automatically so we are 
+MongoDB will give you _id automatically so we are giving false to it.\
 No filters given, but attributes to be listed are given
 
 ### update method
