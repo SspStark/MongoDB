@@ -19,7 +19,7 @@ Database -> Collections -> Documents
 
 {show collections} to show all the collections in the current db
 
-{db.createCollection('collection_name', {capped : true, size : 10000, max: 100}, {autoIndexID : false})}\ will create a collection with some upper limit of size and number of documents in the collection, autoIndexID to false will tell mongoDB to not create the default index on the _ id field in this collection.
+{db.createCollection('collection_name', {capped : true, size : 10000, max: 100}, {autoIndexID : false})}\will create a collection with some upper limit of size and number of documents in the collection, autoIndexID to false will tell mongoDB to not create the default index on the _ id field in this collection.
 By default mongoDB creates an index on the _ id field in a collection.
 
 {db.collection_name.drop()} to drop the collection.
@@ -80,18 +80,22 @@ db.students.updateMany({fulltime : {$ exists:false}}, {$ set : {fulltime: true}}
 {db.collection_name.deleteMany({query})}
 - {query} -> filters the document to select all the documents to delete
 
-{db.collection_name.find({name : {$ ne : 'NAME'}})} 
-to find all the documents whose name attribute is not equal to 'NAME'
+{db.collection_name.deleteMany({registerDate:{$exists:false}})}
+- we are deleting the documents where registerDate doesn't exist. 
 
-{db.collection_name.find({gpa : {$ lt: value}})}
-to find all the documents whose gpa attribute's value is less than 'value'
-
+### comparison operators
 Comparision Operators -
 ne -> not equal
 lt -> less than
 lte -> less than equals to
 gt -> greater than
 gte -> greater than equals to
+
+{db.collection_name.find({name : {$ ne : 'NAME'}})} 
+to find all the documents whose name attribute is not equal to 'NAME'
+
+{db.collection_name.find({gpa : {$ lt: value}})}
+to find all the documents whose gpa attribute's value is less than 'value'
 
 {db.collection_name.find({gpa : {$ gte : 3, $ lte : 4}})}
 to find all the documents whose gpa attribute's value is between 3 and 4
@@ -104,18 +108,19 @@ $ nin -> not in
 db.students.find({ $ and : [{fullTime:true}, {age : {$ gte : 18}  }]  }, {_ id:false, name:true, age:true})
 to find all the documents where the value of fullTime attribute is true and age is less than or equal to 'value'
 
+### Logical operators
 Logical Operators - 
 $ and
 $ or
 $ nor
+$ not
 
-$ not 
+db.collection_name.find({$ and: [{fulltime:true},{age:{$ gte : value}}]})
 
 db.collection_name.find({age : {$ not: {$ gte : value}}})
 to find all the documents where the value of the age attribute is not greater than or equal to 'value', i.e., is less than 'value'
 
-Indexes -
-
+### Indexes
 {db.collection_name.find({name:'value'}).explain('executionStats')}
 to get info about the execution of the query
 
